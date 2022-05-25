@@ -2,6 +2,16 @@
 
 
 
+如果只是临时使用，=
+
+内容详情请见
+
+<a href="#secondchapter">二、语法快速入门</a>
+
+和
+
+<a href="#appendix">附录</a>
+
 ## 起因 -- 一个问题
 
 在正式工作之前，我对正则表达式的匹配也是早就听闻其强大的文本匹配能力，但是没有实际操作过。
@@ -78,7 +88,7 @@ Perl的正则表达式源自于[Henry Spencer](https://zh.wikipedia.org/w/index.
 
 
 
-## 二、语法快速入门
+## <a id="secondchapter">二、语法快速入门</a>
 
 为了方便查阅与快读入门，先将正则表达式最常用的功能列举如下
 
@@ -91,7 +101,7 @@ Perl的正则表达式源自于[Henry Spencer](https://zh.wikipedia.org/w/index.
 | 语法   | 描述                                                         |
 | :----- | :----------------------------------------------------------- |
 | [...]  | 匹配任意在 `...` 中的字符，如 [ABC] 匹配所有 A B C 字符      |
-| [\^...] | 匹配任意不在 `...` 中的字符，如 [\^ABC] 匹配除了 A B C 外的所有单个字符 |
+| [\^...] | 匹配任意不在 `...` 中的字符，如 [\^ABC] 匹配除了 A B C 外的所有单个字符     (注意：为了方便观看这里前面加了转义符\ 实际是没有的。) |
 | [x-y]  | 按照顺序匹配从 `x` 到 `y` 到所有字符，如 [a-z] 匹配所有小写字母，[A-E] 匹配 A 到 E 这五个字符｜ |
 | .      | 匹配任意除了换行符以外的字符                                 |
 | \w     | 匹配字母数字下划线，相当于 [a-zA-Z0-9_]                      |
@@ -107,7 +117,7 @@ Perl的正则表达式源自于[Henry Spencer](https://zh.wikipedia.org/w/index.
 | \t   | 匹配一个制表符，相当于 \x09 \cI                              |
 | \v   | 匹配一个垂直制表符，相当于 \x0b \cK                          |
 | \s   | 匹配任何空白字符，相当于 [ \f\n\r\t\v]，unicode 下也会匹配全角空格符 |
-| \S   | 匹配任何非空白符，相当于 [\^ \f\n\r\t\v]                      |
+| \S   | 匹配任何非空白符，相当于 [\^ \f\n\r\t\v]     (注意：为了方便typora看，这里前面加了转义符\ 实际是没有的。) |
 
 ### 限定符
 用来指定一个子表达式出现了多少次
@@ -202,7 +212,11 @@ Perl的正则表达式源自于[Henry Spencer](https://zh.wikipedia.org/w/index.
   - 或 `|`
 
 
-## Appendix 1 推荐网站
+
+## <a id="appendix">附录</a>
+
+
+### 附录1 推荐网站
 
 1. [菜鸟教程-正则表达式](https://www.runoob.com/regexp/regexp-tutorial.html)
 1. [Reg101 正则在线测试工具1](https://regex101.com/)
@@ -216,11 +230,13 @@ Perl的正则表达式源自于[Henry Spencer](https://zh.wikipedia.org/w/index.
 
 ![image-20220525153608301](LearningRegex.assets/image-20220525153608301.png)
 
-## Appendix2 常用正则表达式
 
-这里用Typora或者vscode看会有问题，建议使用浏览器看https://github.com/TXC-ALON/LearningRegex/blob/main/LearningRegex/LearningRegex.md，或者直接复制代码。
 
-### 一、校验数字的表达式
+### 附录2 常用正则表达式
+
+这里用Typora或者vscode看会有问题，建议使用浏览器看[github博客](https://github.com/TXC-ALON/LearningRegex/blob/main/LearningRegex/LearningRegex.md)，或者直接复制代码。
+
+#### 一、校验数字的表达式
 
 - 数字：**^[0-9]\*$**
 - n位的数字：**^\d{n}$**
@@ -244,7 +260,7 @@ Perl的正则表达式源自于[Henry Spencer](https://zh.wikipedia.org/w/index.
 
 
 
-### 二、校验字符的表达式
+#### 二、校验字符的表达式
 
 - 汉字：**^[\u4e00-\u9fa5]{0,}$**
 - 英文和数字：**^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]{4,40}$**
@@ -261,7 +277,7 @@ Perl的正则表达式源自于[Henry Spencer](https://zh.wikipedia.org/w/index.
 
 ------
 
-### 三、特殊需求表达式
+#### 三、特殊需求表达式
 
 - Email地址：**^\w+([-+.]\w+)\*@\w+([-.]\w+)\*\.\w+([-.]\w+)\*$**
 - 域名：**[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?**
@@ -296,3 +312,5 @@ Perl的正则表达式源自于[Henry Spencer](https://zh.wikipedia.org/w/index.
 - 腾讯QQ号：**[1-9][0-9]{4,} (腾讯QQ号从10000开始)**
 - 中国邮政编码：**[1-9]\d{5}(?!\d) (中国邮政编码为6位数字)**
 - IPv4地址：**((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})(\.((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})){3}**
+
+[^ \f\n\r\t\v]: 
